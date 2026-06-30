@@ -1,0 +1,43 @@
+version: 2
+
+project_name: gocat
+
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - id: gocat
+    main: ./cmd/gocat
+    binary: gocat
+
+    env:
+      - CGO_ENABLED=0
+
+    goos:
+      - linux
+      - windows
+      - darwin
+
+    goarch:
+      - amd64
+      - arm64
+
+    ldflags:
+      - -s -w
+      - -X github.com/rahmatwaisi/gocat/pkg/version.Version={{ .Version }}
+      - -X github.com/rahmatwaisi/gocat/pkg/version.Commit={{ .ShortCommit }}
+      - -X github.com/rahmatwaisi/gocat/pkg/version.Date={{ .Date }}
+
+archives:
+  - formats:
+      - tar.gz
+
+    name_template: >-
+      {{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}
+
+checksum:
+  name_template: checksums.txt
+
+changelog:
+  use: git
