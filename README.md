@@ -2,21 +2,22 @@
 
 > Generate AI-ready project context from any codebase.
 
-`gocat` is a fast, lightweight CLI that scans your project, respects ignore files, lets you interactively select files and directories, and generates a clean Markdown document optimized for AI coding assistants such as ChatGPT, Claude, Gemini, Cursor, GitHub Copilot, Continue, Cline, Roo Code, and more.
+`gocat` is a fast, lightweight command-line tool that scans your project, respects ignore files, lets you interactively select files and directories, and generates a clean Markdown document optimized for AI coding assistants such as ChatGPT, Claude, Gemini, Cursor, GitHub Copilot, Continue, Cline, Roo Code, and many more.
 
 ---
 
 ## Why?
 
-Large projects contain thousands of files.
+Modern AI coding assistants are only as good as the context you provide.
 
-Instead of copying files manually, `gocat` lets you:
+Large projects often contain thousands of files, making it difficult to give an AI exactly the information it needs.
 
-- browse your project
-- select exactly the files you want
-- generate a single AI-friendly Markdown document
+Instead of manually copying files into a prompt, **gocat** lets you:
 
-The result can be pasted directly into your favorite AI assistant.
+- 📁 Browse your project interactively
+- 🎯 Select only the files and directories you need
+- 📝 Generate a clean Markdown document
+- 🤖 Paste it directly into your favorite AI assistant
 
 ---
 
@@ -24,40 +25,77 @@ The result can be pasted directly into your favorite AI assistant.
 
 - 📁 Interactive project tree
 - 📄 Interactive file & directory selection
-- 🚀 Fast recursive scanning
-- 🙈 Respects ignore rules
-    - `.gitignore`
-    - `.dockerignore`
-    - `.gocatignore`
-    - `.aiignore`
-- 🐳 Automatically includes important project files
-- 📝 Markdown output optimized for LLMs
+- 🚀 Fast recursive filesystem scanning
+- 🙈 Respects ignore files
+  - `.gitignore`
+  - `.dockerignore`
+  - `.gocatignore`
+  - `.aiignore`
+- 📝 AI-friendly Markdown output
 - ⚡ Lightweight single binary
-- 🌍 Language agnostic
+- 🌍 Works with any programming language
 
 ---
 
-## Installation
+# Installation
 
-### Go
+## Option 1 — Download a release (Recommended)
+
+Download the latest release for your operating system from:
+
+https://github.com/rahmatwaisi/gocat/releases/latest
+
+Extract it:
+
+```bash
+tar -xzf gocat_<version>_linux_amd64.tar.gz
+```
+
+Install:
+
+```bash
+sudo install -m755 gocat /usr/local/bin/gocat
+```
+
+Verify:
+
+```bash
+gocat --version
+```
+
+---
+
+## Option 2 — Install with Go
 
 ```bash
 go install github.com/rahmatwaisi/gocat/cmd/gocat@latest
 ```
 
+Ensure Go's binary directory is on your PATH.
+
+Verify:
+
+```bash
+gocat --version
+```
+
 ---
 
-## Usage
+# Quick Start
 
-Run inside any project.
+Move to your project.
+
+```bash
+cd my-project
+```
+
+Run:
 
 ```bash
 gocat
 ```
 
-The tool scans your project and displays an interactive tree.
-
-Example:
+The interactive tree appears.
 
 ```text
 [d1] 📁 cmd/
@@ -78,11 +116,11 @@ Select files or directories.
 1 d3 4
 ```
 
-A Markdown document is generated.
+`gocat` generates a Markdown document containing the selected source code.
 
 ---
 
-## Generated Output
+# Example Output
 
 ````markdown
 # cmd/gocat/main.go
@@ -99,7 +137,6 @@ func main() {
 
 # README.md
 
-```md
-# gocat
-...
+```markdown
+# gocat at your service commander
 ```
