@@ -1,3 +1,17 @@
+<p align="center">
+  <img src="assets/logo.svg" alt="gocat logo" width="180">
+</p>
+
+<h1 align="center">😸 Go Cat 😸</h1>
+
+<p align="center">
+  <strong>GIVE AI EXACTLY THE CODE CONTEXT IT NEEDS, NO MORE, NO LESS.</strong>
+</p>
+
+<p align="center">
+  A fast CLI that scans your project, respects ignore files, and generates AI-friendly Markdown for ChatGPT, Claude, Gemini, Cursor, Copilot, and more.
+</p>
+
 # gocat
 
 > Generate AI-ready project context from any codebase.
@@ -38,17 +52,95 @@ Instead of manually copying files into a prompt, **gocat** lets you:
 ---
 
 # Installation
-
 ## Option 1 — Download a release (Recommended)
 
-Download the latest release for your operating system from:
+Download the latest release for your operating system:
 
 https://github.com/rahmatwaisi/gocat/releases/latest
 
-Extract it:
+### Linux
+
+Download:
+
+```text
+gocat_<version>_linux_amd64.tar.gz
+```
+
+Extract:
 
 ```bash
 tar -xzf gocat_<version>_linux_amd64.tar.gz
+```
+
+Install:
+
+```bash
+sudo install -m755 gocat /usr/local/bin/gocat
+```
+
+Verify:
+
+```bash
+gocat --version
+```
+
+---
+
+### Windows
+
+Download:
+
+```text
+gocat_<version>_windows_amd64.tar.gz
+```
+
+Extract using one of the following:
+
+- Windows Explorer (Windows 11)
+- 7-Zip
+- WinRAR
+- PowerShell
+
+PowerShell:
+
+```powershell
+tar -xf gocat_<version>_windows_amd64.tar.gz
+```
+
+Move `gocat.exe` to a directory on your `PATH`, for example:
+
+```text
+C:\Program Files\gocat\
+```
+
+or
+
+```text
+C:\Users\<username>\AppData\Local\Microsoft\WindowsApps\
+```
+
+Verify:
+
+```powershell
+gocat --version
+```
+
+---
+
+### macOS
+
+Download:
+
+```text
+gocat_<version>_darwin_arm64.tar.gz
+```
+
+(Use `darwin_amd64` for Intel Macs.)
+
+Extract:
+
+```bash
+tar -xzf gocat_<version>_darwin_arm64.tar.gz
 ```
 
 Install:
